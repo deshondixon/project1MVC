@@ -1,0 +1,94 @@
+<header>
+  <div
+    class='mx-auto p-5 d-flex flex-column align-items-center bg-body-secondary text-black'
+  >
+    <h1 class='fw-light'>Vacation Destinations WishList</h1>
+    <div class='fw-light'>
+      <p class='fs-6'>
+        Found exciting places to visiton on your next vacation? Use the form
+        below to add them to your wishlist
+      </p>
+    </div>
+  </div>
+</header>
+
+<div class='container align-self-center p-4'>
+  <div class='row'>
+    <div class='col-sm-4'>
+      <form id='inputForm'>
+        <div class='mb-3'>
+          <label class='mb-2' for='name'>Destination name</label>
+          <input
+            type='text'
+            id='name'
+            name='name'
+            class='form-control'
+            placeholder='Enter the name of the destination'
+            autocomplete='off'
+            required
+          />
+        </div>
+        <div class='mb-3'>
+          <label class='mb-2' for='location'>Location</label>
+          <input
+            type='text'
+            id='location'
+            name='location'
+            class='form-control'
+            placeholder='Where is it located?'
+            autocomplete='off'
+            required
+          />
+        </div>
+        <div class='mb-3'>
+          <label class='mb-2' for='description'>Description</label>
+          <textarea
+            class='form-control'
+            id='description'
+            name='description'
+            placeholder='Where is it located?'
+            autocomplete='off'
+            required
+          ></textarea>
+        </div>
+        <button type='submit' class='btn btn-primary w-100'>
+          Add to list
+        </button>
+      </form>
+    </div>
+
+    <div class='col'>
+      <h5 id='heading'>Enter destination details</h5>
+      <h5 class='d-none mb-2' id='title'>My WishList</h5>
+      <div class='row' id='cardContainer'>
+        {{#each cards index=index}}
+          <div class='col-lg-4 gy-3'>
+            <div class='card w-100 h-100'>
+              <img
+                class='card-img-top h-100'
+                src='{{this.imageUrl}}'
+                alt='photo'
+                style='object-fit: cover;'
+              />
+              <div class='card-body'>
+                <h5 class='card-title'>{{this.name}}</h5>
+                <p class='card-text'>{{this.location}}</p>
+                <p class='card-text'>{{this.description}}</p>
+                <div class='col'>
+                  <button
+                    type='button'
+                    class='btn btn-warning editCard'
+                  >Edit</button>
+                  <button
+                    type='button'
+                    class='btn btn-danger removeCard'
+                  >Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
